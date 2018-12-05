@@ -5,10 +5,10 @@ import java.util.Properties;
 public class ReadProperties {
 
     private Properties properties;
-    private InputStream inputStream = ReadProperties.class.getClassLoader().getResourceAsStream("config.properties");
 
     public ReadProperties() {
         properties = new Properties();
+        final InputStream inputStream = ReadProperties.class.getClassLoader().getResourceAsStream("config.properties");
         try {
             properties.load(inputStream);
         } catch (IOException e) {
