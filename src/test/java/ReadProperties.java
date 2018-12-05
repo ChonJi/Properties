@@ -8,8 +8,7 @@ public class ReadProperties {
 
     public ReadProperties() {
         properties = new Properties();
-        final InputStream inputStream = ReadProperties.class.getClassLoader().getResourceAsStream("config.properties");
-        try {
+        try (final InputStream inputStream = ReadProperties.class.getClassLoader().getResourceAsStream("config.properties")){
             properties.load(inputStream);
         } catch (IOException e) {
             e.printStackTrace();
